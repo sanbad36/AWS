@@ -1,0 +1,16 @@
+Parameters:
+  instancetype:
+    Type: String 
+    Description: Enter the Instance Type which you want to add
+
+Resources:
+  MyCloudForm1:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: 
+        default: ami-0eeb03e72075b9bcc
+      InstanceType: !Ref instancetype
+      AvailabilityZone: !Select [ 0, !GetAZs ]
+      Tags: 
+        - Key: Name
+          Value: My Ec2 Instance
